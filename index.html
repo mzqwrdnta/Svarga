@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Svarga Dimsum</title>
+  <link rel="icon" type="image/x-icon" href="img/bot.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Baloo+2:wght@700&family=Cabin:wght@500&family=Nunito:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&family=Quicksand:wght@500;600&family=Urbanist:wght@500&display=swap" rel="stylesheet">
+
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+
+<!-- Loading Page -->
+<div class="preloader">
+  <audio id="intro-audio" autoplay>
+    <source src="sound/3dsound.mp3" type="audio/mpeg">
+  </audio>
+  <div class="logo-glow"><i class="fas fa-bowl-rice"></i></div>
+  <div class="streak"></div>
+  <div class="preloader-text">SVARGA DIMSUM</div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="logo">SVARGA</div> 
+  <div class="toggle" onclick="document.querySelector('nav').classList.toggle('show')">
+    <span></span><span></span><span></span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#Tentang">Tentang Kami</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#testi">Testimoni</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Home -->
+  <section class="hero" id="home">
+    <div class="shape-right-bg"></div>
+    <div class="shape-left-thumb"></div>
+
+    <div class="hero-content">
+      <h1>Dimsum Favoritmu</h1>
+      <p>Rasakan kelezatan dimsum pilihan dengan bahan terbaik dan rasa yang otentik. Setiap gigitan adalah cerita kenikmatan yang tak terlupakan.</p>
+      <div class="product-label" id="product-name">Dimsum Ori</div>
+      <button class="btn"  onclick="document.getElementById('CaraOrder').scrollIntoView({ behavior: 'smooth' });">
+        Yuk, Cicipin Sekarang!</button>
+      <div class="preview-thumbs">
+        <img src="img/dimsum_ori.png" alt="Dimsum 1" onclick="manualChangeImage(this, 0)" class="active">
+        <img src="img/Dumpling.png" alt="Dimsum 2" onclick="manualChangeImage(this, 1)">
+        <img src="img/dimsum_mentai.png" alt="Dimsum 3" onclick="manualChangeImage(this, 2)">
+      </div>
+    </div>
+
+    <div class="hero-image-container">
+      <div class="image-loader" id="imageLoader"></div>
+      <img id="main-image" src="img/dimsum_ori.png" alt="Main Dimsum">
+    </div>
+    <button class="btn-rspnsv"  onclick="document.getElementById('CaraOrder').scrollIntoView({ behavior: 'smooth' });">
+      Yuk, Cicipin Sekarang!
+    </button>
+  </section>
+
+
+  <!-- About -->
+  <section class="about-section" id="Tentang">
+    <div class="container-about">
+      <div class="about-images scroll-reveal reveal-left">
+        <div class="photo-stack">
+          <div class="floating-badge">✨ Premium</div>
+          <img src="img/svarga.jpg" alt="Svarga Dimsum Premium">
+        </div>
+      </div>
+
+      <div class="about-text scroll-reveal reveal-right">
+        <h4>Tentang Kami</h4>
+        <h1>Kami Bukan Sekadar Jual Dimsum</h1>
+        <p>
+           Svarga Dimsum lahir dari dapur rumahan dengan satu misi: bikin orang bahagia lewat makanan sederhana yang rasanya luar biasa.
+          Dibuat dari bahan pilihan, tanpa pengawet, dan dimasak dengan penuh cinta — setiap loyang dimsum punya cerita, dan kami ingin kamu jadi bagian dari cerita itu.
+        </p>
+
+        <div class="stats-container scroll-reveal">
+          <div class="stat-item">
+            <div class="avatars">
+              <img src="https://i.pravatar.cc/40?img=1" alt="Customer 1">
+              <img src="https://i.pravatar.cc/40?img=2" alt="Customer 2">
+              <img src="https://i.pravatar.cc/40?img=3" alt="Customer 3">
+            </div>
+            <div class="stat-text">1200+ Pelanggan Puas</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <div class="rating-text">4.8 Rating Positif</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Panduan Game -->
+<section class="game-voucher-section" id="CaraMain">
+  <div class="game-voucher-container">
+    <div class="game-voucher-text">
+      <h4>Panduan Bermain</h4>
+      <h1>Cara Main & Dapatkan Voucher</h1>
+      <p>Ikuti langkah mudah berikut untuk bermain game memory dan dapatkan kode voucher spesial:</p>
+      <ul class="game-step-list">
+        <li><i class="fas fa-gamepad"></i>
+          <div>
+            <div class="step-title">Buka Game</div>
+            <div class="step-desc">Klik tombol “Mainkan Game” di bawah untuk memulai game memory.</div>
+          </div>
+        </li>
+        <li><i class="fas fa-brain"></i>
+          <div>
+            <div class="step-title">Cocokkan Kartu</div>
+            <div class="step-desc">Temukan pasangan kartu dan selesaikan game secepat mungkin.</div>
+          </div>
+        </li>
+        <li><i class="fas fa-award"></i>
+          <div>
+            <div class="step-title">Raih Skor Tinggi</div>
+            <div class="step-desc">Semakin tinggi skor, semakin besar kesempatan dapat voucher.</div>
+          </div>
+        </li>
+        <li><i class="fas fa-ticket-alt"></i>
+          <div>
+            <div class="step-title">Dapatkan Voucher</div>
+            <div class="step-desc">Setelah selesai, kamu akan mendapat kode voucher unik.</div>
+          </div>
+        </li>
+        <li><i class="fab fa-whatsapp"></i>
+          <div>
+            <div class="step-title">Tukarkan</div>
+            <div class="step-desc">Kirim kode voucher ke WhatsApp kami untuk klaim diskon.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="game-voucher-image">
+      <div class="game-bubble"></div>
+      <div class="game-maskot-container">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png" class="icon-float" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787034.png" class="icon-float" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787026.png" class="icon-float" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787038.png" class="icon-float" alt="">
+        <img src="img/maskot2.png" alt="Maskot" class="game-maskot" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Game -->
+<section class="game" id="game">
+  <div class="container">
+    <div class="game-area">
+      <h2>Memory Game</h2>
+      <div class="timer" id="timer">Waktu: 30</div>
+      <div class="lives" id="lives">❤️❤️❤️</div>
+      <div class="game-grid" id="game-grid"></div>
+      <button id="playButton" style="padding: 12px 24px; font-size: 18px;">🎮 Mulai Game</button>
+      <div class="result" id="result"></div>
+      <div class="leaderboard" id="leaderboard">🏆 High Score Hari Ini: <span id="highscore">0</span></div>
+    </div>
+  </div>
+
+  <!-- POPUP VOUCHER -->
+  <div class="popup" id="popup">
+    <div class="popup-content-order">
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+      <h3>🎊 Selamat!</h3>
+      <div class="voucher" id="voucherCode">Kode Voucher: <strong>SVARGA100</strong></div>
+      <p>Screenshoot kode Vouher kamu dan kirim ke admin</p>
+      <button onclick="shareWhatsApp()">Bagikan ke WhatsApp</button>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- Cara Order -->
+<section class="cara-order-section" id="CaraOrder">
+  <div class="container-about">
+    <div class="about-text">
+      <h4>Panduan Pemesanan</h4>
+      <h1>Cara Order Dimsum di Svarga</h1>
+      <p>
+        Kamu bisa pesan dimsum favoritmu hanya dengan beberapa langkah mudah:
+      </p>
+      <ul class="order-steps">
+        <li>
+          <i class="fas fa-clipboard-list"></i>
+          <div class="step-content">
+            <div class="step-title">Pilih Menu</div>
+            <div class="step-description">Temukan dimsum favoritmu dari berbagai pilihan lezat.</div>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-box-open"></i>
+          <div class="step-content">
+            <div class="step-title">Tentukan Paket</div>
+            <div class="step-description">Pilih jumlah porsi dan level kepedasan yang kamu inginkan.</div>
+          </div>
+        </li>
+        <li>
+          <i class="fab fa-whatsapp"></i>
+          <div class="step-content">
+            <div class="step-title">Pesan via WhatsApp</div>
+            <div class="step-description">Klik "Beli Sekarang" untuk langsung terhubung ke WhatsApp kami.</div>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-motorcycle"></i>
+          <div class="step-content">
+            <div class="step-title">Tunggu Pengiriman</div>
+            <div class="step-description">Pesananmu akan segera diproses dan dikirim ke alamatmu.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-image">
+      <div class="bubble-chat"></div>
+      <div class="mascot-container">
+        <div class="mascot-circle circle-1"></div>
+        <div class="mascot-circle circle-2"></div>
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png" class="dimsum-icon" alt="Dimsum Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787034.png" class="dimsum-icon" alt="Dimsum Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787026.png" class="dimsum-icon" alt="Dimsum Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/5787/5787038.png" class="dimsum-icon" alt="Dimsum Icon">
+        <img src="img/maskot2.png" alt="Maskot Dimsum" class="maskot">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Keranjang -->
+<div class="cart-toggle-container">
+  <button class="cart-toggle-btn" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+</div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Keranjang Pesanan</h3>
+    <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cartTotalAmount">Rp 0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkoutFromCart()">Checkout</button>
+  </div>
+
+  
+</div>
+
+<!-- Menu Section -->
+<section class="menu-section" id="menu">
+  <div class="section-title">
+    <h2>Menu Favorit</h2>
+  </div>
+  <p class="section-subtitle">Pilihan dimsum lezat dengan cita rasa terbaik</p>
+  <div class="menu-grid">
+    <!-- Menu Item 1 -->
+    <div class="menu-card">
+      <img src="img/Dimsum.jpeg" alt="Dimsum Original" class="menu-img">
+      <div class="menu-content">
+        <h3 class="menu-title">Dimsum Original</h3>
+        <p class="menu-desc">Kulit lembut dengan isian ayam juicy dan tekstur yang sempurna</p>
+        <div class="rating">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="rating-count">(128 reviews)</span>
+        </div>
+        <div class="menu-footer">
+          <span class="menu-price">Rp 25.000</span>
+            <div class="menu-actions">
+              <button class="order-btn" onclick="openOrderModal('Dimsum Original', 25000)">
+                <i class="fas fa-bolt"></i> Pesan Langsung
+              </button>
+              <button class="add-to-cart-btn" onclick="addToCart('Dimsum Original', 25000, 'img/Dimsum.jpeg')">
+                <i class="fas fa-cart-plus"></i> Keranjang
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Item 2 -->
+    <div class="menu-card">
+        <img src="img/DimsumMentai.jpeg" alt="Dimsum Mentai" class="menu-img">
+        <div class="menu-content">
+            <h3 class="menu-title">Dimsum Mentai</h3>
+            <p class="menu-desc">Perpaduan sempurna antara dimsum klasik dengan saus mentai creamy</p>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(256 reviews)</span>
+            </div>
+            <div class="menu-footer">
+                <span class="menu-price">Rp 30.000</span>
+                <div class="menu-actions">
+                    <button class="order-btn" onclick="openOrderModal('Dimsum Mentai', 30000)">
+                        <i class="fas fa-bolt"></i> Pesan Langsung
+                    </button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Dimsum Mentai', 30000, 'img/DimsumMentai.jpeg')">
+                        <i class="fas fa-cart-plus"></i> Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Item 3 -->
+    <div class="menu-card">
+        <img src="img/dumpling-ayam.jpeg" alt="Dumpling Ayam" class="menu-img">
+        <div class="menu-content">
+            <h3 class="menu-title">Dumpling Ayam</h3>
+            <p class="menu-desc">Isian ayam premium dengan bumbu rahasia yang menggugah selera</p>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <span class="rating-count">(98 reviews)</span>
+            </div>
+            <div class="menu-footer">
+                <span class="menu-price">Rp 30.000</span>
+                <div class="menu-actions">
+                    <button class="order-btn" onclick="openOrderModal('Dumpling Ayam', 30000)">
+                        <i class="fas fa-bolt"></i> Pesan Langsung
+                    </button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Dumpling Ayam', 30000, 'img/dumpling-ayam.jpeg')">
+                        <i class="fas fa-cart-plus"></i> Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Item 4 -->
+    <div class="menu-card">
+        <img src="img/dumpling-ikan.jpeg" alt="Dimsum Ikan" class="menu-img">
+        <div class="menu-content">
+            <h3 class="menu-title">Dimsum Ikan</h3>
+            <p class="menu-desc">Ikan segar berkualitas dalam balutan kulit yang tipis dan lembut</p>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="rating-count">(187 reviews)</span>
+            </div>
+            <div class="menu-footer">
+                <span class="menu-price">Rp 35.000</span>
+                <div class="menu-actions">
+                    <button class="order-btn" onclick="openOrderModal('Dimsum Udang', 35000)">
+                        <i class="fas fa-bolt"></i> Pesan Langsung
+                    </button>
+                    <button class="add-to-cart-btn" onclick="addToCart('Dimsum Udang', 35000, 'img/dumpling-ikan.jpeg')">
+                        <i class="fas fa-cart-plus"></i> Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Coming Soon -->
+<div class="menu-card coming-soon-card">
+  <div class="coming-soon-overlay">
+    <span class="soon-label">Coming Soon</span>
+  </div>
+  <img src="img/bot.jpg" alt="Coming Soon" class="menu-img">
+  <div class="menu-content">
+    <h3 class="menu-title">Menu Spesial Baru</h3>
+    <p class="menu-desc">Sedang kami persiapkan! Tunggu kelezatan menu baru yang menggoda selera.</p>
+    <div class="menu-footer">
+      <span class="menu-price">Segera Hadir</span>
+      <div class="menu-actions">
+        <button class="order-btn" disabled>
+          <i class="fas fa-clock"></i> Tunggu ya!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Menu Coming Soon -->
+<div class="menu-card coming-soon-card">
+  <div class="coming-soon-overlay">
+    <span class="soon-label">Coming Soon</span>
+  </div>
+  <img src="img/bot.jpg" alt="Coming Soon" class="menu-img">
+  <div class="menu-content">
+    <h3 class="menu-title">Menu Spesial Baru</h3>
+    <p class="menu-desc">Sedang kami persiapkan! Tunggu kelezatan menu baru yang menggoda selera.</p>
+    <div class="menu-footer">
+      <span class="menu-price">Segera Hadir</span>
+      <div class="menu-actions">
+        <button class="order-btn" disabled>
+          <i class="fas fa-clock"></i> Tunggu ya!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+          <h3 class="modal-title" id="modalMenuTitle">Pesan Dimsum</h3>
+          <p class="modal-subtitle">Isi form berikut untuk memesan</p>
+      </div>
+      <div class="modal-body">
+        <form id="orderForm">
+          <div class="form-group">
+              <label for="customerName" class="form-label">Nama Anda</label>
+              <input type="text" id="customerName" class="form-control" placeholder="Masukkan nama Anda" required>
+          </div>
+
+          <div class="form-group">
+              <label for="customerPhone" class="form-label">Nomor WhatsApp</label>
+              <input type="tel" id="customerPhone" class="form-control" placeholder="Contoh: 081234567890" required>
+          </div>
+
+          <div class="form-group">
+              <label for="quantity" class="form-label">Jumlah Paket</label>
+              <select id="quantity" class="form-control" onchange="updateOrderSummary()" required>
+                  <option value="1">1 Paket (isi 4)</option>
+                  <option value="2">2 Paket (isi 8)</option>
+                  <option value="3">3 Paket (isi 12)</option>
+                  <option value="4">4 Paket (isi 16)</option>
+                  <option value="5">5 Paket (isi 20)</option>
+                  <option value="6">6 Paket (isi 24)</option>
+                  <option value="7">7 Paket (isi 28)</option>
+                  <option value="8">8 Paket (isi 32)</option>
+                  <option value="9">9 Paket (isi 36)</option>
+                  <option value="10">10 Paket (isi 40)</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label class="form-label">Level Pedas</label>
+              <div class="form-radio-group">
+                  <input type="radio" id="spicy0" name="spicyLevel" value="Tidak Pedas" class="form-radio" checked onchange="updateOrderSummary()">
+                  <label for="spicy0" class="form-radio-label">Tidak Pedas</label>
+                  
+                  <input type="radio" id="spicy1" name="spicyLevel" value="Sedang" class="form-radio" onchange="updateOrderSummary()">
+                  <label for="spicy1" class="form-radio-label">Sedang</label>
+                  
+                  <input type="radio" id="spicy2" name="spicyLevel" value="Pedas" class="form-radio" onchange="updateOrderSummary()">
+                  <label for="spicy2" class="form-radio-label">Pedas</label>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="form-label">Metode Pengiriman</label>
+              <div class="form-radio-group">
+                  <input type="radio" id="delivery1" name="deliveryMethod" value="Diantar" class="form-radio" checked onchange="toggleDeliveryAddress(true); updateOrderSummary()">
+                  <label for="delivery1" class="form-radio-label">Diantar</label>
+                  
+                  <input type="radio" id="delivery2" name="deliveryMethod" value="Ambil Sendiri" class="form-radio" onchange="toggleDeliveryAddress(false); updateOrderSummary()">
+                  <label for="delivery2" class="form-radio-label">Ambil Sendiri</label>
+              </div>
+          </div>
+
+          <div class="form-group" id="addressGroup">
+              <label for="deliveryAddress" class="form-label">Alamat Lengkap</label>
+              <textarea id="deliveryAddress" class="form-control" placeholder="Masukkan alamat lengkap untuk pengiriman" required></textarea>
+          </div>
+
+          <div class="form-group">
+              <label for="orderNotes" class="form-label">Catatan Tambahan</label>
+              <textarea id="orderNotes" class="form-control" placeholder="Contoh: Tanpa kecap, tambah sambal, dll"></textarea>
+          </div>
+
+          <div class="form-group" >
+            <label class="form-label">Metode Pembayaran</label>
+            <div class="payment-methods" >
+              <div class="payment-method" id="cashPaymentMethod" onclick="selectPaymentMethod('cash')">
+                  <input type="radio" name="paymentMethod" value="cash" checked>
+                  <span>Bayar di Tempat</span>
+              </div>
+              <div class="payment-method" onclick="selectPaymentMethod('qris')">
+                  <input type="radio" name="paymentMethod" value="qris">
+                  <span>QRIS</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="paymentProofGroup" class="hidden">
+              <!-- Bagian Upload Bukti Transfer -->
+              <div id="transferProofSection" class="payment-proof hidden">
+                  <label for="paymentProof">Upload Bukti Transfer</label>
+                  <input type="file" id="paymentProof" accept="image/*,.pdf">
+              </div>
+              
+              <!-- Bagian QRIS -->
+              <div id="qrisSection" class="payment-proof hidden">
+                  <label>Scan QRIS Pembayaran</label>
+                  <div class="qris-container">
+                      <img src="img/qr.jpg" alt="QRIS Pembayaran" class="qris-image">
+                      <p class="qris-instruction">Scan QR code di atas menggunakan aplikasi mobile banking atau e-wallet Anda</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="order-summary">
+              <h4 class="summary-title">Ringkasan Pesanan</h4>
+              <div class="summary-item">
+                  <span class="summary-label">Menu:</span>
+                  <span class="summary-value" id="summaryMenu">-</span>
+              </div>
+              <div class="summary-item">
+                  <span class="summary-label">Jumlah:</span>
+                  <span class="summary-value" id="summaryQuantity">1 Paket</span>
+              </div>
+              <div class="summary-item">
+                  <span class="summary-label">Level Pedas:</span>
+                  <span class="summary-value" id="summarySpice">Tidak Pedas</span>
+              </div>
+              <div class="summary-item">
+                  <span class="summary-label">Pengiriman:</span>
+                  <span class="summary-value" id="summaryDelivery">Diantar</span>
+              </div>
+              <div class="summary-item">
+                  <span class="summary-label">Pembayaran:</span>
+                  <span class="summary-value" id="summaryPayment">Tunai (COD)</span>
+              </div>
+              <div class="summary-total">
+                  <span>Total:</span>
+                  <span id="summaryTotal">Rp 25.000</span>
+              </div>
+          </div>
+
+          <button type="button" class="submit-btn" onclick="submitOrder()">
+              <i class="fab fa-whatsapp"></i> Kirim Pesanan via WhatsApp
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimoni -->
+<section class="testi-section" id="testi">
+  <h2>Apa Kata Mereka?</h2>
+  <div class="sliderr-wrapper">
+    <div class="cardd-container" id="cardContainer">
+      <div class="cardd">
+        <h4>@rina_kuliner</h4>
+        <div class="rating-testi">★★★★★</div>
+        <p>"Pelayanan cepat dan ramah, rasanya otentik!"</p>
+      </div>
+      <div class="cardd">
+        <h4>@dimas_foodie</h4>
+        <div class="rating-testi">★★★★★</div>
+        <p>"Dimsum kejunya lumer dan juicy banget!"</p>
+      </div>
+      <div class="cardd">
+        <h4>@sari_momlife</h4>
+        <div class="rating-testi">★★★★★</div>
+         <p>"Cocok buat bekal anak-anak, pasti habis."</p>
+      </div>
+    </div>
+
+    <div class="arrows">
+      <div class="arrow-btn" onclick="slide(-1)">&#10094;</div>
+      <div class="arrow-btn" onclick="slide(1)">&#10095;</div>
+    </div>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
+
+<!-- AI Chatbot -->
+<div class="chatbot-container">
+  <button class="chatbot-toggle" onclick="toggleChatbot()" aria-label="Open chatbot">
+    <i class="fas fa-robot"></i>
+  </button>
+  
+  <div class="chatbot-popup" id="chatbotPopup">
+    <div class="chatbot-header">
+      <h3>Svarga Assistant</h3>
+      <button class="close-chatbot" onclick="toggleChatbot()" aria-label="Close chatbot">&times;</button>
+    </div>
+    <div class="chatbot-body" id="chatbotMessages">
+      <div class="bot-message">
+        <img src="img/bot.jpg" alt="Bot Icon" class="bot-icon">
+        <div class="message-content">
+          Halo! Saya Asisten Svarga Dimsum. Ada yang bisa saya bantu? 😊
+          <div class="quick-questions">
+            <button onclick="sendQuickQuestion(this)">Menu apa saja yang tersedia?</button>
+            <button onclick="sendQuickQuestion(this)">Berapa harga dimsum original?</button>
+            <button onclick="sendQuickQuestion(this)">Bagaimana cara memesan?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot-footer">
+      <input type="text" id="userInput" placeholder="Ketik pesan Anda..." onkeypress="handleKeyPress(event)" aria-label="Type your message">
+      <button onclick="sendMessage()" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-section" id="kontak">
+  <div class="footer-container">
+    <div class="footer-content">
+
+      <!-- Brand & Sosmed -->
+      <div class="footer-brand">
+        <h2>SVARGA</h2>
+        <p>Dimsum premium dengan cita rasa autentik yang tak terlupakan</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/svarga.foodies/"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/6285213963005"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="available-on">
+          <p>Tersedia juga di:</p>
+          <img src="img/gofood.png" alt="GoFood" height="30">
+          <img src="img/shopeefood.png" alt="ShopeeFood" height="30">
+          <img src="img/grabfood.png" alt="GrabFood" height="30">
+        </div>
+        <div class="available-on">
+          <p>Didukung oleh:</p>
+          <img src="img/sponsor.jpg" alt="Sponsor" height="35">
+        </div>
+      </div>
+
+      <!-- Kontak -->
+      <div class="footer-contact">
+        <h4>Kontak</h4>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+62 852-1396-3005</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>hello@svargadimsum.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span style="text-align: left;">Jl. Raya Abdul Gani No.2 Blok B, Jatimulya, Depok</span>
+        </div>
+      </div>
+
+      <!-- Maps -->
+      <div class="footer-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.593881200354!2d106.833801474117!3d-6.446157363031236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eb007ad89db7%3A0x6e22c675cd8ffd98!2sSvarga%20Foodies!5e0!3m2!1sid!2sid!4v1750420769937!5m2!1sid!2sid"
+          width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Svarga Dimsum. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Link JS -->
+  <script src="js/game.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/animate.js"></script>
+  <script src="js/bot-svarga.js"></script>
+  <script src="js/chart.js"></script>
+
+  <script>
+     // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling untuk navigation link
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+    
+</body>
+</html>
